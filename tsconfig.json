@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "~/constants": ["./constants/index.ts"]
+      "~/constants": ["./constants/index.ts"],
+      "~/lib/pdf2img": ["./app/lib/pdf2img.ts"]
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
