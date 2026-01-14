@@ -8,7 +8,7 @@ import Ats from "~/components/Ats";
 
 export const meta = () => [
   { title: "Resumind | Review" },
-  { name: "description", Content: "Detail overview of resume" },
+  { name: "description", content: "Detail overview of resume" },
 ];
 
 const Resume = () => {
@@ -20,8 +20,9 @@ const Resume = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading && !auth.isAuthenticated) navigate(`/auth?next=/resume/${id}`)
-  }, [isLoading])
+    if (!isLoading && !auth.isAuthenticated)
+      navigate(`/auth?next=/resume/${id}`);
+  }, [isLoading]);
 
   useEffect(() => {
     const loadResume = async () => {
@@ -83,12 +84,15 @@ const Resume = () => {
           <h2 className="text-4xl text-black! font-bold">Resume Review</h2>
           {feedback ? (
             <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
-              <Summary feedback={feedback}/>
-              <Ats score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []}/>
-              <Details feedback={feedback}/>
+              <Summary feedback={feedback} />
+              <Ats
+                score={feedback.ATS.score || 0}
+                suggestions={feedback.ATS.tips || []}
+              />
+              <Details feedback={feedback} />
             </div>
-          ): (
-            <img src="/images/resume-scan-2.gif" alt="" className="w-full"/>
+          ) : (
+            <img src="/images/resume-scan-2.gif" alt="" className="w-full" />
           )}
         </section>
       </div>
