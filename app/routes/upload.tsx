@@ -60,7 +60,7 @@ const Upload = () => {
     setStatusText("Analyzing...");
 
     const feedback = await ai.feedback(
-      uploadedFile.path,
+      uploadedImage.path,
       prepareInstructions({ jobTitle, jobDescription })
     );
     if (!feedback) return setStatusText("Error: Failed to analyze resume");
@@ -74,7 +74,7 @@ const Upload = () => {
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete, redirecting...");
     console.log(data);
-    navigate(`/resume/${uuid}`);
+    // navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
